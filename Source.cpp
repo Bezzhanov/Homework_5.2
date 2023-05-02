@@ -1,14 +1,14 @@
 ﻿#include <iostream>
 /*
-Базовые классы - Triangle, Quadrangle
-Потомки класса Triangle - RightTriangle, IsoscelesTriangle, EquilateralTriangle;
-Потомки класса Quadrangle - Square, Parallelogram;
-Потомки класса Parallelogram - Rhombus, Rectangle;
+Áàçîâûå êëàññû - Triangle, Quadrangle
+Ïîòîìêè êëàññà Triangle - RightTriangle, IsoscelesTriangle, EquilateralTriangle;
+Ïîòîìêè êëàññà Quadrangle - Square, Parallelogram;
+Ïîòîìêè êëàññà Parallelogram - Rhombus, Rectangle;
 */
 class Figure {
 public:
 	Figure() {
-			name = "Фигура";
+		name = "Ôèãóðà";
 	};
 	int get_a() { return this->a; };
 	int get_b() { return this->b; };
@@ -20,7 +20,7 @@ public:
 	int get_D() { return this->D; };
 	std::string get_name() { return this->name; };
 	void print_info(Figure* x) {
-		std::cout << "Это метод родительского класса, который не предполагает вывода" << std::endl;
+		std::cout << "Ýòî ìåòîä ðîäèòåëüñêîãî êëàññà, êîòîðûé íå ïðåäïîëàãàåò âûâîäà" << std::endl;
 	};
 
 protected:
@@ -45,52 +45,52 @@ public:
 		this->A = A;
 		this->B = B;
 		this->C = C;
-		this->name = "Треугольник";
+		this->name = "Òðåóãîëüíèê";
 	}
 	void print_info(Figure* x) {
 		std::cout << x->get_name() << ":" << std::endl;
-		std::cout << "Стороны: " << "a=" << x->get_a() << " b=" << x->get_b() << " c=" << x->get_c() << std::endl;
-		std::cout << "Углы: " << "A=" << x->get_A() << " B=" << x->get_B() << " C=" << x->get_C() << std::endl;
+		std::cout << "Ñòîðîíû: " << "a=" << x->get_a() << " b=" << x->get_b() << " c=" << x->get_c() << std::endl;
+		std::cout << "Óãëû: " << "A=" << x->get_A() << " B=" << x->get_B() << " C=" << x->get_C() << std::endl;
 		std::cout << std::endl;
 	};
 protected:
 
 };
-//Прямоугольный треугольник.
-//Для создания экземпляра класса необходимо указать:
-//стороны a,b,c и 2 угла - A и B
-//Угол C равен 90 градусам по умолчанию.
+//Ïðÿìîóãîëüíûé òðåóãîëüíèê.
+//Äëÿ ñîçäàíèÿ ýêçåìïëÿðà êëàññà íåîáõîäèìî óêàçàòü:
+//ñòîðîíû a,b,c è 2 óãëà - A è B
+//Óãîë C ðàâåí 90 ãðàäóñàì ïî óìîë÷àíèþ.
 class RightTriangle : public Triangle {
 
 public:
-	RightTriangle(int a, int b, int c, int A, int B) : Triangle(a, b, c, A, B, 90 ) {
-		name = "Прямоугольный треугольник";
+	RightTriangle(int a, int b, int c, int A, int B) : Triangle(a, b, c, A, B, 90) {
+		name = "Ïðÿìîóãîëüíûé òðåóãîëüíèê";
 
 	};
 protected:
 
 };
-//Равнобедренный треугольник
-//Для создания экземпляра класса необходимо указать:
-//стороны a и b, углы A и B
-//сторона a = c, угол A = C по умолчанию.
+//Ðàâíîáåäðåííûé òðåóãîëüíèê
+//Äëÿ ñîçäàíèÿ ýêçåìïëÿðà êëàññà íåîáõîäèìî óêàçàòü:
+//ñòîðîíû a è b, óãëû A è B
+//ñòîðîíà a = c, óãîë A = C ïî óìîë÷àíèþ.
 class IsoscelesTriangle : public Triangle {
-	
+
 public:
 	IsoscelesTriangle(int a, int b, int A, int B) : Triangle(a, b, a, A, B, A) {
-		name = "Равнобедренный треугольник";
+		name = "Ðàâíîáåäðåííûé òðåóãîëüíèê";
 	};
 protected:
 
 };
-//Равносторонний треугольник:
-//Для создания экземпляра класса необходимо указать:
-//Длину сторон - a.
-//Углы по умолчанию равны 60 градусам
+//Ðàâíîñòîðîííèé òðåóãîëüíèê:
+//Äëÿ ñîçäàíèÿ ýêçåìïëÿðà êëàññà íåîáõîäèìî óêàçàòü:
+//Äëèíó ñòîðîí - a.
+//Óãëû ïî óìîë÷àíèþ ðàâíû 60 ãðàäóñàì
 class EquilateralTriangle : public Triangle {
 public:
 	EquilateralTriangle(int a) :Triangle(a, a, a, 60, 60, 60) {
-		name = "Равносторонний треугольник";
+		name = "Ðàâíîñòîðîííèé òðåóãîëüíèê";
 	}
 
 protected:
@@ -110,70 +110,70 @@ public:
 		this->B = B;
 		this->C = C;
 		this->D = D;
-		this->name = "Четырехугольник";
+		this->name = "×åòûðåõóãîëüíèê";
 	}
 	void print_info(Figure* x) {
 		std::cout << x->get_name() << ":" << std::endl;
-		std::cout << "Стороны: " << "a=" << x->get_a() << " b=" << x->get_b() << " c=" << x->get_c() << " d=" << x->get_d() << std::endl;
-		std::cout << "Углы: " << "A=" << x->get_A() << " B=" << x->get_B() << " C=" << x->get_C() <<  " D=" << x->get_D() << std::endl;
+		std::cout << "Ñòîðîíû: " << "a=" << x->get_a() << " b=" << x->get_b() << " c=" << x->get_c() << " d=" << x->get_d() << std::endl;
+		std::cout << "Óãëû: " << "A=" << x->get_A() << " B=" << x->get_B() << " C=" << x->get_C() << " D=" << x->get_D() << std::endl;
 		std::cout << std::endl;
 	};
 
 protected:
 };
 
-//Параллелограм.
-//Для создания экземпляра класса необходимо указать:
-//Длину сторон - a и b, углы A и B
-//стороны a,c и b,d попарно равны, углы A,C и B,D попарно равны
+//Ïàðàëëåëîãðàì.
+//Äëÿ ñîçäàíèÿ ýêçåìïëÿðà êëàññà íåîáõîäèìî óêàçàòü:
+//Äëèíó ñòîðîí - a è b, óãëû A è B
+//ñòîðîíû a,c è b,d ïîïàðíî ðàâíû, óãëû A,C è B,D ïîïàðíî ðàâíû
 class Parallelogram : public Quadrangle {
 
 public:
-	Parallelogram(int a, int b, int A, int B) :Quadrangle(a,b,a,b, A, B, A, B) {
+	Parallelogram(int a, int b, int A, int B) :Quadrangle(a, b, a, b, A, B, A, B) {
 
-		this->name = "Параллелограм";
+		this->name = "Ïàðàëëåëîãðàì";
 	};
 
 protected:
 
 };
 
-//Прямоугольник
-//Для создания экземпляра класса необходимо передать:
-//Длину сторон - a и b
-//стороны a,c и b,d попарно равны, все углы равны 90
+//Ïðÿìîóãîëüíèê
+//Äëÿ ñîçäàíèÿ ýêçåìïëÿðà êëàññà íåîáõîäèìî ïåðåäàòü:
+//Äëèíó ñòîðîí - a è b
+//ñòîðîíû a,c è b,d ïîïàðíî ðàâíû, âñå óãëû ðàâíû 90
 class Rectangle : public Quadrangle {
 public:
-	Rectangle(int a, int b) :Quadrangle(a,b,a,b,90,90,90,90) {
-	
-		this->name = "Прямоугольник";
+	Rectangle(int a, int b) :Quadrangle(a, b, a, b, 90, 90, 90, 90) {
+
+		this->name = "Ïðÿìîóãîëüíèê";
 	};
 
 };
 
-//Квадрат
-//Для создания экземпляра класса необходимо указать:
-//Длину сторон - a.
-//Углы по умолчанию равны 90 градусам
+//Êâàäðàò
+//Äëÿ ñîçäàíèÿ ýêçåìïëÿðà êëàññà íåîáõîäèìî óêàçàòü:
+//Äëèíó ñòîðîí - a.
+//Óãëû ïî óìîë÷àíèþ ðàâíû 90 ãðàäóñàì
 class Square : public Quadrangle {
 
 public:
-	Square(int a) :Quadrangle(a,a,a,a, 90,90,90,90) {
-		this->name = "Квадрат";
+	Square(int a) :Quadrangle(a, a, a, a, 90, 90, 90, 90) {
+		this->name = "Êâàäðàò";
 	};
 protected:
 
 };
 
-//Ромб
-//Для создания экземпляра класса необходимо указать:
-//Длину сторон - a, углы A и B
-//все стороны равны, углы A,C и B,D попарно равны
+//Ðîìá
+//Äëÿ ñîçäàíèÿ ýêçåìïëÿðà êëàññà íåîáõîäèìî óêàçàòü:
+//Äëèíó ñòîðîí - a, óãëû A è B
+//âñå ñòîðîíû ðàâíû, óãëû A,C è B,D ïîïàðíî ðàâíû
 class Rhombus : public Parallelogram {
 public:
-	Rhombus(int a, int A, int B) :Parallelogram(a,a,A,B) {
-	
-		this->name = "Ромб";
+	Rhombus(int a, int A, int B) :Parallelogram(a, a, A, B) {
+
+		this->name = "Ðîìá";
 	};
 
 };
@@ -182,15 +182,15 @@ public:
 
 int main() {
 	setlocale(LC_ALL, "Ru");
-	Triangle t(10,20,30,50,60,70);
+	Triangle t(10, 20, 30, 50, 60, 70);
 	t.print_info(&t);
 	RightTriangle rt(10, 20, 30, 50, 60);
 	rt.print_info(&rt);
-	IsoscelesTriangle it(10, 20, 50,60);
+	IsoscelesTriangle it(10, 20, 50, 60);
 	it.print_info(&it);
 	EquilateralTriangle et(30);
 	et.print_info(&et);
-	Quadrangle q(10,20,30,40,50,60,70,80);
+	Quadrangle q(10, 20, 30, 40, 50, 60, 70, 80);
 	q.print_info(&q);
 	Rectangle r(10, 20);
 	r.print_info(&r);
