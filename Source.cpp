@@ -14,9 +14,7 @@ public:
 	int get_C() { return this->C; };
 	int get_D() { return this->D; };
 	std::string get_name() { return this->name; };
-	void print_info(Figure* x) {
-		std::cout << "для родительского класса данная функция не предусмотрена" << std::endl;
-	};
+	virtual void print_info(Figure *x) = 0;
 
 protected:
 	int a{};
@@ -96,7 +94,7 @@ public:
 		this->B = B;
 		this->C = C;
 		this->D = D;
-		this->name = "×Четырёхугольник";
+		this->name = "Четырёхугольник";
 	}
 	void print_info(Figure* x) {
 		std::cout << x->get_name() << ":" << std::endl;
@@ -151,8 +149,6 @@ public:
 	};
 
 };
-
-
 
 int main() {
 	setlocale(LC_ALL, "Ru");
